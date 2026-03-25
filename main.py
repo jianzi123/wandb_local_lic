@@ -32,7 +32,7 @@ def main():
     concurrentAgents = 10
 
     # Main settings
-    if input("Do you want to change the default values? (y/N): ").lower() or "n" == "y":
+    if input("Do you want to change the default values? (y/N): ").lower() == "y":
         seats = int(input("Enter the number of seats (100): ") or 100)
         teams = int(input("Enter the number of teams (10): ") or 10)
         expire_date = (
@@ -41,7 +41,7 @@ def main():
         print()
 
         # Advanced settings
-        if input("Do you want to use advanced settings? (y/N): ").lower() or "n" == "y":
+        if input("Do you want to use advanced settings? (y/N): ").lower() == "y":
             registeredModels = int(
                 input("Enter the number of registered model (5): ") or 5
             )
@@ -53,7 +53,7 @@ def main():
     timedelta = datetime.timedelta(hours=6, minutes=59, seconds=59)
     expire_time = datetime.datetime.strptime(expire_date, "%m/%d/%Y") + timedelta
     expiresAt = expire_time.replace(tzinfo=None).isoformat() + ".999Z"
-    epoch = int(expire_time.strftime("%s"))
+    epoch = int(expire_time.timestamp())
 
     PAYLOAD = {
         "concurrentAgents": concurrentAgents,

@@ -8,4 +8,4 @@ services:
     volumes:
       - ./jwks.json:/var/app/jwks.json:ro
     environment:
-      - HOST=http://172.23.144.187:8080
+      - HOST=http://192.168.18.170:8080
