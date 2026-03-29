@@ -1,11 +1,16 @@
-version: "3.7"
 services:
   wandb:
     image: wandb/local
     container_name: wandb
     ports:
-      - "8080:8080"
+      - "8010:8080"
     volumes:
       - ./jwks.json:/var/app/jwks.json:ro
+      - wandb_data:/vol
     environment:
-      - HOST=http://192.168.18.170:8080
+      - HOST=http://192.168.18.170:8010
+      - DISABLE_TELEMETRY=true
+      # - LOCAL_RESTORE=true
+
+volumes:
+  wandb_data:

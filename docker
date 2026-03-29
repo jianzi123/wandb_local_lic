@@ -1,0 +1,4 @@
+FROM wandb/local
+COPY jwks.json /var/app/jwks.json
+COPY license.txt /var/app/license.txt
+COPY docker-compose.yml /var/app/docker-compose.yml
